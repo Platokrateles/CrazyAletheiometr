@@ -1,0 +1,181 @@
+@font-face {
+  font-family: VictorianSteampunk;
+  src: url(Fonts/VictorianDecadeDemoVersion-2O7ml.otf);
+}
+
+:root
+{
+  --scale: 0.4;
+
+  --hourTipHeight: 671px;
+  --hourTipWidth: 127px;
+  --hourTipXPositionCorrector: 6px;
+  --hourTipYPositionCorrector: 2px;
+
+  --minuteTipHeight: 1115px;
+  --minuteTipWidth: 76px;
+  --minuteTipXPositionCorrector: 5px;
+  --minuteTipYPositionCorrector: 2px;
+
+  --secondTipHeight: 1798px;
+  --secondTipWidth: 95px;
+  --secondTipXPositionCorrector: 5px;
+  --secondTipYPositionCorrector: 0px;
+
+  --clockShieldDiameter: 600px
+}
+
+*
+{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body
+{
+  font-family: VictorianSteampunk;
+  background: radial-gradient(circle at center, gray, white 20%, gray);
+}
+
+.container
+{
+  border: 0px black solid;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock
+{
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background: bisque;
+  background: radial-gradient(circle at center, #d4af37, #c4cace 20%, #d4af37);
+  border: 0px red solid;
+  width: 615px;
+  height: 615px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: scale3d(0.95, 0.95, 0.95);
+  transition: 0.05s;
+}
+
+.btn
+{
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background: radial-gradient(circle at center, #d4af37, #c4cace 20%, #d4af37);
+  border: 0px red solid;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 44px;
+  transition: 0.2s;
+  font-family: inherit;
+}
+
+.btn:active
+{
+  width: 100px;
+  height: 100px;
+  font-size: 64px;
+  color: whitesmoke;
+}
+
+.clockShield
+{
+  position: absolute;
+  left: calc(50% - var(--clockShieldDiameter) / 2);
+  top: calc(50% - var(--clockShieldDiameter) / 2);
+  z-index: 0px;
+}
+
+
+.clockShield, .clockShield img
+{
+  width: auto;
+}
+
+.hour, .hour img
+{
+  width: auto;
+  height: calc(var(--hourTipHeight) * var(--scale));
+}
+
+.hour
+{
+  z-index: 2px;
+  left: calc(50% - var(--hourTipWidth) * var(--scale) / 2 - var(--hourTipXPositionCorrector));
+  top: calc(50% - var(--hourTipHeight) * var(--scale) / 2 - var(--hourTipYPositionCorrector));
+  position: absolute;
+  border: 0px green solid;
+  transform-style: preserve-3d;
+  transform: rotateZ(calc(45deg * 2));
+}
+
+.hour img
+{
+  border: 0px blue solid;
+}
+
+.minute, .minute img
+{
+  width: auto;
+  height: calc(var(--minuteTipHeight) * var(--scale));
+}
+
+.minute
+{
+  z-index: 1px;
+  left: calc(50% - var(--minuteTipWidth) * var(--scale) / 2 - var(--minuteTipXPositionCorrector));
+  top: calc(50% - var(--minuteTipHeight) * var(--scale) / 2 - var(--minuteTipYPositionCorrector));
+  position: absolute;
+  border: 0px violet solid;
+}
+
+.minute img
+{
+  border: 0px orange solid;
+}
+
+.hour .minute
+{
+  
+}
+
+.center
+{
+  display: none;
+  z-index: 10px;
+  position: absolute;
+  left: calc(50% - 5px);
+  top: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.second, .second img
+{
+  width: auto;
+  height: calc(var(--secondTipHeight) * var(--scale) * 0.7);
+}
+
+.second
+{
+  z-index: 3px;
+  left: calc(50% - var(--secondTipWidth) * 0.7 * var(--scale) / 2 - var(--secondTipXPositionCorrector));
+  top: calc(50% - var(--secondTipHeight) * 0.7 * var(--scale) / 2 - var(--secondTipYPositionCorrector));
+  position: absolute;
+  border: 0px coral solid;
+  /*transform-style: preserve-3d;*/
+  /*transform: rotateZ(calc(45deg * 2));*/
+}
+
+.second img
+{
+  border: 0px brown solid;
+}
